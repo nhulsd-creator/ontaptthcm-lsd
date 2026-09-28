@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Bài tập Chương 6 Tư tưởng Hồ Chí Minh: văn hóa, đạo đức, con người. Biên soạn: TS. Bùi Văn Như">
+<meta name="author" content="TS. Bùi Văn Như">
+<title>Trồng Người Trăm Năm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Playfair+Display:ital,wght@0,700;1,500&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#EDF1EC; --surface:#FFFFFF; --surface2:#E1E9E2; --ink:#14261E; --muted:#56655D;
+  --line:#C9D4CB; --red:#1D6B4E; --red-ink:#FFFFFF; --gold:#B8841A; --gold-soft:#F3E6C4;
+  --ok:#1F7A4D; --ok-soft:#DCF0E3; --bad:#B23A2E; --bad-soft:#F7E0DC;
+  --display:"Oswald","Arial Narrow",Impact,sans-serif;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1613; --surface:#17211C; --surface2:#1F2C25; --ink:#E8EEE9; --muted:#9DB0A5;
+    --line:#2E3E35; --red:#4FBF8E; --red-ink:#0B1A13; --gold:#E3B54E; --gold-soft:#342C18;
+    --ok:#5CCB93; --ok-soft:#15301F; --bad:#F07366; --bad-soft:#3A1E1B; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1613; --surface:#17211C; --surface2:#1F2C25; --ink:#E8EEE9; --muted:#9DB0A5;
+  --line:#2E3E35; --red:#4FBF8E; --red-ink:#0B1A13; --gold:#E3B54E; --gold-soft:#342C18;
+  --ok:#5CCB93; --ok-soft:#15301F; --bad:#F07366; --bad-soft:#3A1E1B; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:860px;margin:0 auto}
+header.hero{padding-block:28px 18px;display:grid;gap:10px}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.slogan{font-family:var(--display);font-weight:700;text-transform:uppercase;line-height:1.02;font-size:clamp(34px,7.5vw,64px);margin:0;letter-spacing:.01em;text-wrap:balance}
+.slogan .l1{display:block;color:var(--ink)}
+.slogan .l2{display:block;color:var(--red)}
+.quote{margin:8px 0 6px;position:relative;container-type:inline-size;padding-block:14px 10px;border-block:1px solid var(--line)}
+.sprout{display:block;margin:0 auto 6px;width:54px;height:40px;color:var(--red)}
+.quote .qmark{position:absolute;top:-28px;left:-4px;font-family:"Playfair Display",Georgia,serif;font-size:96px;line-height:1;color:var(--gold);opacity:.55}
+.quote blockquote{margin:0;display:grid;gap:.1em;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;line-height:1.2;text-align:center;font-size:min(5.1cqi,46px)}
+.quote .ql{display:block;white-space:nowrap;color:var(--ink)}
+.quote .ql2{color:var(--red);font-style:italic;font-weight:500}
+.quote figcaption{text-align:right;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-top:10px}
+.quote figcaption::before{content:"— "}
+.sub{color:var(--muted);max-width:62ch;margin:0}
+.score{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
+.chip b{color:var(--red)}
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;gap:6px;overflow-x:auto;border-bottom:2px solid var(--ink);scrollbar-width:none}
+nav.tabs button{flex:0 0 auto;font-family:var(--display);font-weight:500;font-size:15px;text-transform:uppercase;letter-spacing:.04em;border:0;background:transparent;color:var(--muted);padding:8px 12px;border-radius:6px;cursor:pointer}
+nav.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+nav.tabs button:focus-visible,.btn:focus-visible,.opt:focus-visible,.card:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+section.panel{padding-top:22px;display:grid;gap:16px}
+h2{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:26px;margin:0;letter-spacing:.02em}
+.lead{color:var(--muted);margin:0;max-width:65ch}
+.qbox{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:14px}
+.qmeta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:12px;color:var(--muted);font-weight:600}
+.lv{padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:.04em}
+.lv-NB{background:var(--surface2);color:var(--ink)}
+.lv-TH{background:var(--gold-soft);color:var(--ink)}
+.lv-VD{background:var(--ok-soft);color:var(--ok)}
+.lv-VDC{background:var(--bad-soft);color:var(--bad)}
+.pg{margin-left:auto;font-variant-numeric:tabular-nums}
+.qtext{font-size:18px;font-weight:600;margin:0;line-height:1.45}
+.opts{display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;cursor:pointer}
+.opt:hover:not([disabled]){border-color:var(--ink)}
+.opt .k{font-family:var(--display);font-weight:700;min-width:20px;color:var(--muted)}
+.opt.sel{border-color:var(--ink);background:var(--surface2)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt[disabled]{cursor:default}
+.exp{border-left:4px solid var(--gold);background:var(--surface2);padding:10px 12px;border-radius:0 6px 6px 0;font-size:15px}
+.exp strong{display:block;margin-bottom:2px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:inherit;font-weight:600;border-radius:8px;padding:10px 16px;cursor:pointer;border:1.5px solid var(--ink);background:transparent;color:var(--ink)}
+.btn.primary{background:var(--red);border-color:var(--red);color:var(--red-ink)}
+.btn[disabled]{opacity:.45;cursor:default}
+.progress{height:6px;background:var(--surface2);border-radius:3px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--red);transition:width .3s}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{font:inherit;font-size:13px;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
+.filters button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.fill-q{font-size:18px;font-weight:500;margin:0}
+.blank{display:inline-block;min-width:90px;border-bottom:2px solid var(--red);text-align:center;font-weight:700;color:var(--red);padding:0 4px}
+.words{display:flex;flex-wrap:wrap;gap:8px}
+/* timeline */
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.bins .opt{justify-content:center;align-items:center;min-height:52px;text-align:center;font-family:var(--display);font-size:17px;font-weight:500;text-transform:uppercase;letter-spacing:.03em}
+.sortcard{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:21px;line-height:1.4;padding:10px 4px;text-align:center;text-wrap:balance}
+.tl{display:grid;gap:8px}
+.slot{display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:center;min-height:48px;border:1.5px dashed var(--line);border-radius:8px;padding:8px 10px;background:var(--surface)}
+.slot .n{font-family:var(--display);font-size:20px;color:var(--muted);text-align:center}
+.slot.filled{border-style:solid;border-color:var(--ink)}
+.slot.right{border-color:var(--ok);background:var(--ok-soft)}
+.slot.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.slot .yr{font-family:var(--display);font-weight:700;color:var(--red);font-variant-numeric:tabular-nums}
+.pool{display:flex;flex-wrap:wrap;gap:8px}
+.card{font:inherit;font-size:14px;font-weight:600;text-align:left;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);border-radius:8px;padding:8px 12px;cursor:pointer}
+.card:hover{background:var(--surface2)}
+/* TF */
+.tfbtns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tfbtns .opt{justify-content:center;font-family:var(--display);font-size:20px;text-transform:uppercase;font-weight:700}
+/* exam */
+.timer{font-family:var(--display);font-size:22px;font-variant-numeric:tabular-nums}
+.result{background:var(--ink);color:var(--bg);border-radius:10px;padding:20px;display:grid;gap:6px}
+.result .big{font-family:var(--display);font-size:56px;line-height:1;font-weight:700}
+.result .big span{color:var(--gold)}
+.review{display:grid;gap:10px}
+.review .item{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px;font-size:15px}
+.review .item .a{color:var(--ok);font-weight:600}
+.review .item .y{color:var(--bad)}
+/* cases */
+.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:10px}
+.case h3{margin:0;font-size:19px}
+.case .tag{font-family:var(--display);color:var(--red);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.case ol,.case ul{margin:0;padding-left:22px;display:grid;gap:4px}
+details summary{cursor:pointer;font-weight:600;color:var(--red)}
+details[open] summary{margin-bottom:8px}
+.note{font-size:13px;color:var(--muted)}
+footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+nav.tabs .fsbtn{margin-left:auto;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--ink);color:var(--ink)}
+nav.tabs .fsbtn[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:var(--red-ink)}
+body.focus header.hero,body.focus footer{display:none}
+body.focus .wrap{max-width:1100px}
+body.focus nav.tabs{padding-top:14px}
+body.focus section.panel{padding-top:28px;gap:20px}
+body.focus h2{font-size:32px}
+body.focus .qbox{padding:28px}
+body.focus .qtext,body.focus .fill-q{font-size:clamp(20px,2.4vw,30px)}
+body.focus .opt{font-size:clamp(16px,1.7vw,22px);padding:14px 16px}
+body.focus .card{font-size:clamp(14px,1.4vw,18px)}
+body.focus .exp{font-size:clamp(15px,1.4vw,19px)}
+body.focus .timer{font-size:32px}
+
+/* ---- Chapter 6 visual layer ---- */
+:root{--hero1:#0A3A2C;--hero2:#15664C;--hero-ink:#F5F0E3;--hero-soft:#BFD8C9;--hero-gold:#EBC057;
+  --t-gold:#B07B12;--t-gold-bg:#FBF1D9;--t-jade:#15714F;--t-jade-bg:#DDF1E6;--t-coral:#C0512C;--t-coral-bg:#FBE4DA;--t-blue:#265E8A;--t-blue-bg:#DDEAF5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--hero1:#082A20;--hero2:#114D3A;
+  --t-gold:#E9BE5C;--t-gold-bg:#2E2614;--t-jade:#5ACB98;--t-jade-bg:#12291E;--t-coral:#F08A63;--t-coral-bg:#34201A;--t-blue:#7FB5E0;--t-blue-bg:#16232F}}
+:root[data-theme="dark"]{--hero1:#082A20;--hero2:#114D3A;
+  --t-gold:#E9BE5C;--t-gold-bg:#2E2614;--t-jade:#5ACB98;--t-jade-bg:#12291E;--t-coral:#F08A63;--t-coral-bg:#34201A;--t-blue:#7FB5E0;--t-blue-bg:#16232F}
+header.hero{padding-block:20px 16px;gap:14px}
+.hero-band{position:relative;overflow:hidden;border-radius:18px;padding:22px 22px 18px;color:var(--hero-ink);
+  background:radial-gradient(120% 90% at 100% 0%,rgba(235,192,87,.22),transparent 55%),radial-gradient(90% 80% at 0% 100%,rgba(120,210,170,.18),transparent 60%),linear-gradient(135deg,var(--hero1),var(--hero2));
+  box-shadow:0 18px 40px -22px rgba(10,58,44,.7)}
+.hero-band::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:14px 14px;pointer-events:none}
+.hero-band>*{position:relative;z-index:1}
+.hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;align-items:baseline}
+.hero-band .eyebrow{color:var(--hero-gold)}
+.hero-topic{font-family:var(--display);font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--hero-soft)}
+.hero-band .quote{border-block:1px solid rgba(245,240,227,.22);margin:16px 0 4px}
+.hero-band .qmark{color:var(--hero-gold);opacity:.7}
+.hero-band .sprout{color:var(--hero-gold)}
+.hero-band .ql{color:var(--hero-ink)}
+.hero-band .ql2{color:var(--hero-gold)}
+.hero-band .quote figcaption{color:var(--hero-soft)}
+.author{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:12px;font-size:14px}
+.author div{display:grid;gap:1px}
+.author span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--hero-soft);font-weight:600}
+.author b{font-weight:600;color:var(--hero-ink)}
+nav.tabs button[aria-selected="true"]{background:var(--red);color:var(--red-ink)}
+nav.tabs{border-bottom-color:var(--red)}
+.progress i{background:linear-gradient(90deg,var(--red),var(--gold))}
+.result{background:linear-gradient(135deg,var(--hero1),var(--hero2));color:var(--hero-ink)}
+.result .big span{color:var(--hero-gold)}
+.lv-NB{background:var(--t-blue-bg);color:var(--t-blue)}
+.lv-TH{background:var(--t-gold-bg);color:var(--t-gold)}
+.lv-VD{background:var(--t-jade-bg);color:var(--t-jade)}
+.lv-VDC{background:var(--t-coral-bg);color:var(--t-coral)}
+.qbox{box-shadow:0 10px 30px -24px rgba(10,58,44,.55)}
+/* summary */
+.sum-lead{font-size:17px;line-height:1.65;max-width:70ch;margin:0}
+.keys{display:flex;flex-wrap:wrap;gap:8px}
+.keys span{font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:16px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.pillar-head{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--tb);color:var(--tc);border-bottom:1px solid var(--line)}
+.pillar-head .num{font-family:"Playfair Display",Georgia,serif;font-size:34px;font-weight:700;line-height:1}
+.pillar-head h3{margin:0;font-family:var(--display);font-weight:500;font-size:19px;text-transform:uppercase;letter-spacing:.03em}
+.pillar-body{padding:14px 18px 18px;display:grid;gap:14px}
+.pillar-body h4{margin:0 0 4px;font-size:15px;color:var(--tc)}
+.pillar-body ul{margin:0;padding-left:18px;display:grid;gap:4px;font-size:15px;line-height:1.5}
+.pillar-body li::marker{color:var(--tc)}
+.tone-gold{--tc:var(--t-gold);--tb:var(--t-gold-bg)}
+.tone-jade{--tc:var(--t-jade);--tb:var(--t-jade-bg)}
+.tone-coral{--tc:var(--t-coral);--tb:var(--t-coral-bg)}
+.tone-blue{--tc:var(--t-blue);--tb:var(--t-blue-bg)}
+nav.tabs .fsbtn{background:var(--gold);border-color:var(--gold);color:#1B1405;font-weight:600;box-shadow:0 6px 16px -8px var(--gold)}
+nav.tabs .fsbtn:hover{filter:brightness(1.06)}
+nav.tabs .fsbtn[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg);box-shadow:none}
+nav.tabs{overflow:visible;align-items:center;gap:10px}
+.tablist{display:flex;gap:6px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent);padding-right:24px}
+.tablist::-webkit-scrollbar{display:none}
+nav.tabs .fsbtn{margin-left:0;flex:0 0 auto}
+@media (max-width:560px){nav.tabs .fsbtn span{display:none}nav.tabs .fsbtn{padding:8px 10px}}
+/* ---- Pink hero + chapter title ---- */
+:root{--bg:#FBF3F4;--surface2:#F6E6EA;--line:#EBD4DA;--hp1:#FFF4F6;--hp2:#F9D9E1;--hp-ink:#3B1C25;--hp-muted:#8C5A68;--hp-acc:#1A6A4C;--hp-gold:#A8740F;--hp-line:rgba(120,50,70,.18);--hp-hi:rgba(255,255,255,.7)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161113;--surface2:#261C20;--line:#3B2C32;--hp1:#2A1A20;--hp2:#3D2530;--hp-ink:#FBEAEE;--hp-muted:#D7AEB9;--hp-acc:#5ACB98;--hp-gold:#EBC057;--hp-line:rgba(255,220,230,.18);--hp-hi:rgba(255,200,215,.07)}}
+:root[data-theme="dark"]{--bg:#161113;--surface2:#261C20;--line:#3B2C32;--hp1:#2A1A20;--hp2:#3D2530;--hp-ink:#FBEAEE;--hp-muted:#D7AEB9;--hp-acc:#5ACB98;--hp-gold:#EBC057;--hp-line:rgba(255,220,230,.18);--hp-hi:rgba(255,200,215,.07)}
+body{background:var(--bg)}
+nav.tabs{background:var(--bg)}
+.hero-band{color:var(--hp-ink);background:radial-gradient(90% 80% at 100% 0%,var(--hp-hi),transparent 60%),radial-gradient(80% 90% at 0% 100%,rgba(240,160,180,.35),transparent 60%),linear-gradient(135deg,var(--hp1),var(--hp2));box-shadow:0 20px 44px -26px rgba(140,60,80,.55);border:1px solid var(--hp-line);padding:26px 26px 20px}
+.hero-band::after{background-image:radial-gradient(rgba(160,70,95,.10) 1px,transparent 1px)}
+.hero-top{justify-content:space-between}
+.hero-band .eyebrow{color:var(--hp-muted)}
+.hero-band .chap{font-family:var(--display);font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--hp-acc);padding:3px 12px;border-radius:999px}
+.chap-title{margin:14px auto 4px;max-width:32ch;text-align:center;font-family:"Playfair Display",Georgia,"Times New Roman",serif;font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:1.14;font-size:clamp(24px,4.4vw,46px);color:var(--hp-acc);text-wrap:balance}
+.hero-band .quote{border-block:1px solid var(--hp-line);margin:14px auto 4px;max-width:720px;padding-block:12px 8px}
+.hero-band .quote blockquote{font-size:clamp(15px,3.4cqi,23px)}
+.hero-band .qmark{color:var(--hp-gold);opacity:.55;font-size:64px;top:-18px}
+.hero-band .sprout{color:var(--hp-gold);width:40px;height:30px}
+.hero-band .ql{color:var(--hp-ink)}
+.hero-band .ql2{color:var(--hp-acc)}
+.hero-band .quote figcaption{color:var(--hp-muted)}
+.author span{color:var(--hp-muted)}
+.author b{color:var(--hp-ink)}
+.author{justify-content:center;border-top:1px solid var(--hp-line);padding-top:12px}
+@media (max-width:560px){.hero-band{padding:20px 18px 16px}.hero-band .ql{white-space:normal;text-wrap:balance}}
+.author div{text-align:center}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-band">
+      <div class="hero-top"><span class="eyebrow">Học phần Tư tưởng Hồ Chí Minh</span><span class="chap">Chương 6</span></div>
+      <h1 class="chap-title">Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người</h1>
+      <figure class="quote" id="quote">
+        <span class="qmark" aria-hidden="true">“</span>
+        <svg class="sprout" viewBox="0 0 54 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M27 39V17"/><path d="M27 22C27 12 19 6 8 6c0 10 8 16 19 16Z" fill="currentColor" fill-opacity=".25"/><path d="M27 17C27 8 34 2 46 2c0 10-8 15-19 15Z" fill="currentColor" fill-opacity=".45"/><path d="M14 39h26"/></svg>
+        <blockquote>
+          <span class="ql">Vì lợi ích mười năm thì phải trồng cây</span>
+          <span class="ql ql2">Vì lợi ích trăm năm thì phải trồng người</span>
+        </blockquote>
+        <figcaption>Hồ Chí Minh</figcaption>
+      </figure>
+      <div class="author">
+        <div><span>Biên soạn</span><b>TS. Bùi Văn Như</b></div>
+        <div><span>Đơn vị</span><b>Trường Đại học Công nghiệp TP. HCM</b></div>
+      </div>
+    </div>
+    <div class="score" id="score"></div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <div class="tablist" role="tablist">
+    <button role="tab" data-t="sum" aria-selected="true">Tóm tắt chương</button>
+    <button role="tab" data-t="fill">1 · Điền khuyết</button>
+    <button role="tab" data-t="order">2 · Cần Kiệm Liêm Chính</button>
+    <button role="tab" data-t="tf">3 · Đúng hay sai</button>
+    <button role="tab" data-t="bank">4 · Luyện 60 câu</button>
+    <button role="tab" data-t="exam">5 · Thi thử</button>
+    <button role="tab" data-t="cases">Thảo luận</button>
+    </div>
+    <button type="button" id="fsBtn" class="fsbtn" aria-pressed="false" title="Toàn màn hình"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1.5 5.5v-4h4M10.5 1.5h4v4M14.5 10.5v4h-4M5.5 14.5h-4v-4"/></svg><span>Toàn màn hình</span></button>
+  </nav>
+
+  <main id="main"></main>
+
+  <footer><b>Biên soạn:</b> TS. Bùi Văn Như · Trường Đại học Công nghiệp TP. HCM.<br>Nguồn: Bộ Giáo dục và Đào tạo, <i>Giáo trình Tư tưởng Hồ Chí Minh</i> (dành cho bậc đại học hệ không chuyên lý luận chính trị), Nxb. Chính trị quốc gia Sự thật, Hà Nội, 2021, Chương 6.</footer>
+</div>
+
+<script>
+const D = {"mcq": [{"u": "V1", "lv": "NB", "q": "Năm 1987, Tổ chức Giáo dục, Khoa học và Văn hóa Liên hợp quốc (UNESCO) ghi nhận Hồ Chí Minh là:", "o": ["Anh hùng giải phóng dân tộc, Nhà văn hóa kiệt xuất Việt Nam", "Nhà tư tưởng vĩ đại, Nhà giáo dục lỗi lạc", "Danh nhân văn hóa thế giới, Nhà thơ lớn của dân tộc", "Lãnh tụ thiên tài, Nhà ngoại giao kiệt xuất"], "e": "Nghị quyết 24C/18.65 của Khóa họp 24 Đại hội đồng UNESCO (20/10 – 20/11/1987)."}, {"u": "V1", "lv": "NB", "q": "Hồ Chí Minh đưa ra quan niệm về văn hóa theo nghĩa rộng (“Vì lẽ sinh tồn cũng như mục đích của cuộc sống…”) vào thời gian nào?", "o": ["Tháng 8/1943, khi bị giam trong nhà tù của Tưởng Giới Thạch", "Năm 1930, khi thành lập Đảng", "Năm 1946, trong Lời kêu gọi toàn quốc kháng chiến", "Năm 1957, tại Hội nghị văn hóa toàn quốc"], "e": "Quan niệm xuất hiện khi UNESCO chưa thành lập, cả nước đang tập trung cho nhiệm vụ giải phóng dân tộc."}, {"u": "V1", "lv": "NB", "q": "Theo Hồ Chí Minh, bốn vấn đề trong đời sống phải được coi là quan trọng ngang nhau là:", "o": ["Chính trị, kinh tế, văn hóa, xã hội", "Chính trị, quân sự, ngoại giao, văn hóa", "Kinh tế, giáo dục, y tế, văn hóa", "Đảng, Nhà nước, Mặt trận, đoàn thể"], "e": "Bốn vấn đề này có sự tác động qua lại lẫn nhau."}, {"u": "V1", "lv": "NB", "q": "Trong mối quan hệ với kinh tế, Hồ Chí Minh xác định văn hóa thuộc:", "o": ["Kiến trúc thượng tầng", "Cơ sở hạ tầng", "Lực lượng sản xuất", "Quan hệ sản xuất"], "e": "Cơ sở hạ tầng có kiến thiết rồi văn hóa mới kiến thiết được, nhưng văn hóa có tác động tích cực trở lại kinh tế."}, {"u": "V3", "lv": "NB", "q": "Trong kháng chiến chống thực dân Pháp, nền văn hóa mới được xác định có tính chất:", "o": ["Dân tộc, khoa học, đại chúng", "Dân tộc, dân chủ, nhân dân", "Tiên tiến, đậm đà bản sắc dân tộc", "Khoa học, hiện đại, nhân văn"], "e": "Khẳng định lại phương châm của Đề cương văn hóa Việt Nam (1943)."}, {"u": "V3", "lv": "NB", "q": "Năm 1943, Hồ Chí Minh nêu năm nội dung xây dựng nền văn hóa dân tộc. Nội dung nào KHÔNG thuộc năm nội dung đó?", "o": ["Xây dựng quốc phòng", "Xây dựng tâm lý", "Xây dựng luân lý", "Xây dựng chính trị"], "e": "Năm nội dung: xây dựng tâm lý, luân lý, xã hội, chính trị, kinh tế."}, {"u": "V3", "lv": "NB", "q": "Trong thời kỳ xây dựng chủ nghĩa xã hội ở miền Bắc, Hồ Chí Minh chủ trương xây dựng nền văn hóa có:", "o": ["Nội dung xã hội chủ nghĩa và tính chất dân tộc", "Nội dung dân tộc và hình thức quốc tế", "Tính chất khoa học và đại chúng", "Nội dung dân chủ và tính chất nhân dân"], "e": "Tổng quát: nền văn hóa toàn diện, giữ gìn cốt cách dân tộc, bảo đảm tính khoa học, tiến bộ và nhân văn."}, {"u": "V2", "lv": "NB", "q": "Theo Hồ Chí Minh, “văn hóa nghệ thuật cũng là một mặt trận”, vì vậy anh chị em văn nghệ sĩ là:", "o": ["Chiến sĩ trên mặt trận ấy", "Người đứng ngoài chính trị", "Người phục vụ giải trí cho nhân dân", "Lực lượng hậu phương"], "e": "Ngòi bút là vũ khí sắc bén trong sự nghiệp “phò chính trừ tà”."}, {"u": "Đ2", "lv": "NB", "q": "Nội dung nào sau đây KHÔNG phải là chuẩn mực đạo đức cách mạng theo Hồ Chí Minh?", "o": ["Nói đi đôi với làm, nêu gương về đạo đức", "Trung với nước, hiếu với dân", "Cần, kiệm, liêm, chính, chí công vô tư", "Tinh thần quốc tế trong sáng"], "e": "“Nói đi đôi với làm” là nguyên tắc xây dựng đạo đức. Bốn chuẩn mực gồm thêm: thương yêu con người, sống có tình có nghĩa."}, {"u": "Đ2", "lv": "NB", "q": "Phẩm chất đạo đức bao trùm quan trọng nhất và chi phối các phẩm chất khác là:", "o": ["Trung với nước, hiếu với dân", "Cần, kiệm, liêm, chính", "Thương yêu con người", "Tinh thần quốc tế trong sáng"], "e": "Hồ Chí Minh đưa nội dung mới vào khái niệm cũ “trung với vua, hiếu với cha mẹ”."}, {"u": "Đ2", "lv": "NB", "q": "Nội dung cốt lõi của đạo đức cách mạng, gắn liền với hoạt động hằng ngày của mỗi người, được Hồ Chí Minh đề cập nhiều nhất là:", "o": ["Cần, kiệm, liêm, chính, chí công vô tư", "Trung với nước, hiếu với dân", "Thương yêu con người, sống có tình có nghĩa", "Tinh thần quốc tế trong sáng"], "e": "Được đề cập từ Đường cách mệnh cho đến Di chúc."}, {"u": "Đ3", "lv": "NB", "q": "Ba nguyên tắc xây dựng đạo đức cách mạng theo Hồ Chí Minh là:", "o": ["Nói đi đôi với làm, nêu gương; xây đi đôi với chống; tu dưỡng đạo đức suốt đời", "Cần, kiệm, liêm, chính", "Tự phê bình, phê bình, đoàn kết", "Tập trung, dân chủ, kỷ luật"], "e": "Phân biệt rõ nguyên tắc (cách xây dựng) với chuẩn mực (nội dung đạo đức)."}, {"u": "Đ1", "lv": "NB", "q": "“Cũng như sông thì có nguồn mới có nước, không có nguồn thì sông cạn. Cây phải có gốc, không có gốc thì cây héo…”. Câu này trích từ tác phẩm nào?", "o": ["Sửa đổi lối làm việc (1947)", "Đường cách mệnh (1927)", "Đạo đức cách mạng (1958)", "Di chúc (1969)"], "e": "Vế sau: “Người cách mạng phải có đạo đức, không có đạo đức thì dù tài giỏi mấy cũng không lãnh đạo được nhân dân”."}, {"u": "Đ1", "lv": "NB", "q": "Hoàn thành câu nói của Hồ Chí Minh: “Việc nước lấy Đoàn thể làm cốt cán. Việc Đoàn thể lấy cán bộ làm cốt cán. Cán bộ lấy … làm cốt cán”.", "o": ["đạo đức", "tài năng", "kỷ luật", "lý luận"], "e": "Khẳng định đạo đức là gốc, là nền tảng của người cách mạng."}, {"u": "Đ2", "lv": "NB", "q": "Hồ Chí Minh ví cần, kiệm, liêm, chính như:", "o": ["Bốn mùa của trời, bốn phương của đất; “thiếu một đức thì không thành người”", "Bốn chân của một cái bàn", "Bốn bức tường của một ngôi nhà", "Bốn ngón tay của một bàn tay"], "e": "Đây là bốn đức tính cơ bản của con người."}, {"u": "Đ2", "lv": "NB", "q": "Câu thơ “Quan sơn muôn dặm một nhà / Bốn phương vô sản đều là anh em!” thể hiện chuẩn mực đạo đức nào?", "o": ["Tinh thần quốc tế trong sáng", "Trung với nước, hiếu với dân", "Chí công vô tư", "Cần, kiệm, liêm, chính"], "e": "Chủ nghĩa yêu nước chân chính kết hợp nhuần nhuyễn với chủ nghĩa quốc tế vô sản."}, {"u": "Đ3", "lv": "NB", "q": "Theo Hồ Chí Minh, nguồn gốc của mọi thứ tệ nạn là:", "o": ["Chủ nghĩa cá nhân", "Nghèo đói", "Thiếu hiểu biết pháp luật", "Ảnh hưởng văn hóa ngoại lai"], "e": "“Nâng cao đạo đức cách mạng, quét sạch chủ nghĩa cá nhân” (1969)."}, {"u": "C3", "lv": "NB", "q": "Hoàn thành câu nói: “Vì lợi ích mười năm thì phải trồng cây, vì lợi ích trăm năm thì phải …”", "o": ["trồng người", "dựng nước", "giữ nước", "xây trường"], "e": "Ý này vốn từ lời Quản Trọng thời Xuân Thu, được Hồ Chí Minh vận dụng với nội dung mới."}, {"u": "C3", "lv": "NB", "q": "Theo Hồ Chí Minh, “Muốn xây dựng chủ nghĩa xã hội, trước hết cần phải có …”", "o": ["những con người xã hội chủ nghĩa", "nền kinh tế phát triển cao", "nền công nghiệp hiện đại", "sự giúp đỡ của các nước anh em"], "e": "Việc xây dựng con người xã hội chủ nghĩa được đặt ra ngay từ đầu."}, {"u": "C1", "lv": "NB", "q": "Theo Hồ Chí Minh, “chữ người” theo nghĩa hẹp là:", "o": ["Gia đình, anh em, họ hàng, bè bạn", "Đồng bào cả nước", "Cả loài người", "Giai cấp công nhân"], "e": "Nghĩa rộng là đồng bào cả nước; rộng hơn nữa là cả loài người."}, {"u": "H", "lv": "NB", "q": "Nghị quyết Hội nghị Trung ương 5 khóa VIII (7/1998) bàn về vấn đề gì?", "o": ["Xây dựng và phát triển nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc", "Xây dựng và phát triển văn hóa, con người Việt Nam đáp ứng yêu cầu phát triển bền vững", "Đổi mới căn bản, toàn diện giáo dục và đào tạo", "Tăng cường xây dựng, chỉnh đốn Đảng"], "e": "Nêu quan điểm: văn hóa là nền tảng tinh thần của xã hội, vừa là mục tiêu vừa là động lực."}, {"u": "H", "lv": "NB", "q": "Nghị quyết số 33-NQ/TW (9/6/2014) của Hội nghị Trung ương 9 khóa XI có nội dung:", "o": ["Xây dựng và phát triển văn hóa, con người Việt Nam đáp ứng yêu cầu phát triển bền vững đất nước", "Xây dựng nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc", "Về công tác thanh niên trong thời kỳ mới", "Về hội nhập quốc tế"], "e": "Cùng với Đại hội XIII, định hướng phát triển con người toàn diện."}, {"u": "V1", "lv": "TH", "q": "Theo Hồ Chí Minh, quan hệ giữa văn hóa và chính trị được hiểu là:", "o": ["Giải phóng chính trị mở đường cho văn hóa phát triển; văn hóa không đứng ngoài mà ở trong chính trị, phục vụ nhiệm vụ chính trị", "Văn hóa quyết định chính trị", "Văn hóa và chính trị tách biệt, độc lập với nhau", "Chính trị phải phục vụ văn hóa"], "e": "Đồng thời mọi hoạt động của tổ chức và nhà chính trị phải có hàm lượng văn hóa."}, {"u": "V1", "lv": "TH", "q": "Nhận định nào đúng về quan hệ giữa văn hóa và kinh tế theo Hồ Chí Minh?", "o": ["Văn hóa không hoàn toàn phụ thuộc vào kinh tế mà có vai trò tác động tích cực trở lại kinh tế", "Văn hóa hoàn toàn phụ thuộc vào kinh tế", "Văn hóa quyết định sự phát triển kinh tế", "Kinh tế và văn hóa không liên quan"], "e": "Mỗi bước phát triển của kinh tế, chính trị, xã hội đều có sự khai sáng của văn hóa."}, {"u": "V1", "lv": "TH", "q": "Luận điểm “Xã hội thế nào văn hóa thế ấy” nói về quan hệ giữa văn hóa với:", "o": ["Xã hội", "Chính trị", "Kinh tế", "Đạo đức"], "e": "Trong chế độ nô lệ, văn nghệ cũng bị nô lệ, không thể phát triển."}, {"u": "V1", "lv": "TH", "q": "Theo Hồ Chí Minh, mối quan hệ giữa giữ gìn cốt cách văn hóa dân tộc và tiếp thu văn hóa nhân loại là:", "o": ["Phải lấy văn hóa dân tộc làm gốc; đó là điều kiện, cơ sở để tiếp thu văn hóa nhân loại", "Tiếp thu văn hóa nhân loại là gốc", "Hai việc đối lập, phải chọn một", "Chỉ tiếp thu văn hóa phương Đông"], "e": "Mục đích tiếp thu là làm giàu cho văn hóa Việt Nam, hợp với tinh thần dân chủ."}, {"u": "V1", "lv": "TH", "q": "Tiêu chí tiếp thu văn hóa nhân loại theo Hồ Chí Minh là:", "o": ["Có cái gì hay, cái gì tốt là ta học lấy, toàn diện cả Đông, Tây, kim, cổ", "Chỉ tiếp thu văn hóa các nước xã hội chủ nghĩa", "Tiếp thu toàn bộ, không cần chọn lọc", "Chỉ tiếp thu khoa học – kỹ thuật"], "e": "Đồng thời tránh nguy cơ trở thành kẻ bắt chước."}, {"u": "V2", "lv": "TH", "q": "Nói “văn hóa là mục tiêu”, nhìn một cách tổng quát, theo Hồ Chí Minh đó là:", "o": ["Quyền sống, quyền sung sướng, quyền tự do, quyền mưu cầu hạnh phúc; khát vọng về chân, thiện, mỹ", "Sự phát triển của văn học, nghệ thuật", "Việc xóa nạn mù chữ", "Sự giàu có về vật chất"], "e": "Một xã hội dân chủ, công bằng, văn minh, ai cũng có cơm ăn áo mặc, ai cũng được học hành."}, {"u": "V2", "lv": "TH", "q": "Văn hóa chính trị có ý nghĩa “soi đường cho quốc dân đi” là một phương diện của luận điểm nào?", "o": ["Văn hóa là động lực của sự nghiệp cách mạng", "Văn hóa là một mặt trận", "Văn hóa phục vụ quần chúng nhân dân", "Văn hóa thuộc kiến trúc thượng tầng"], "e": "Các phương diện động lực: văn hóa chính trị, văn nghệ, giáo dục, đạo đức – lối sống, pháp luật."}, {"u": "V2", "lv": "TH", "q": "Để văn hóa phục vụ quần chúng, người viết phải trả lời được các câu hỏi:", "o": ["Viết cho ai? Mục đích viết? Lấy tài liệu đâu mà viết? Cách viết như thế nào?", "Viết gì? Viết khi nào? Viết ở đâu?", "Viết để được nổi tiếng hay để kiếm sống?", "Viết theo phong cách nào của nước ngoài?"], "e": "Tóm lại “từ trong quần chúng ra. Về sâu trong quần chúng”."}, {"u": "Đ2", "lv": "TH", "q": "“Trung với nước, hiếu với dân” của Hồ Chí Minh khác quan niệm “trung với vua, hiếu với cha mẹ” ở điểm cơ bản nào?", "o": ["Đối tượng của trung, hiếu là Tổ quốc và nhân dân; “bao nhiêu lợi ích đều vì dân, bao nhiêu quyền hạn đều của dân”", "Bỏ hoàn toàn khái niệm trung, hiếu", "Chỉ áp dụng cho quân đội", "Đề cao lòng trung thành với cá nhân lãnh tụ"], "e": "“Đạo đức cũ như người đầu ngược xuống đất chân chổng lên trời. Đạo đức mới như người hai chân đứng vững được dưới đất, đầu ngửng lên trời”."}, {"u": "Đ2", "lv": "TH", "q": "Theo Hồ Chí Minh, câu nào thể hiện đúng nội dung chữ “Kiệm”?", "o": ["Việc đáng tiêu mà không tiêu là bủn xỉn, chứ không phải là kiệm", "Càng tiêu ít càng tốt, trong mọi trường hợp", "Kiệm là không bao giờ chi tiêu cho người khác", "Kiệm chỉ là tiết kiệm tiền bạc"], "e": "Kiệm là tiết kiệm sức lao động, thì giờ, tiền của của dân, của nước, của bản thân; kiên quyết không xa xỉ."}, {"u": "Đ2", "lv": "TH", "q": "Theo Hồ Chí Minh, chữ “Chính” được thể hiện rõ trong ba mối quan hệ nào?", "o": ["Đối với mình, đối với người, đối với việc", "Đối với Đảng, Nhà nước, nhân dân", "Đối với gia đình, nhà trường, xã hội", "Đối với cấp trên, cấp dưới, đồng nghiệp"], "e": "Đối với mình chớ tự kiêu tự đại; đối với người chớ nịnh hót người trên, chớ xem khinh người dưới; đối với việc để việc công lên trên việc tư."}, {"u": "Đ2", "lv": "TH", "q": "Chí công vô tư về thực chất là:", "o": ["Sự tiếp nối cần, kiệm, liêm, chính; là chống chủ nghĩa cá nhân", "Một phẩm chất độc lập, không liên quan đến cần, kiệm, liêm, chính", "Chỉ dành cho cán bộ cấp cao", "Sự hy sinh toàn bộ lợi ích cá nhân"], "e": "“Lo trước thiên hạ, vui sau thiên hạ”."}, {"u": "Đ1", "lv": "TH", "q": "Theo tư tưởng Hồ Chí Minh về quan hệ giữa đức và tài, nhận định nào đúng?", "o": ["Đức là gốc; thiếu tài thì làm việc gì cũng khó, nhưng thiếu đạo đức thì vô dụng, thậm chí có hại", "Tài quan trọng hơn đức", "Chỉ cần có đức, không cần tài", "Đức và tài không liên quan với nhau"], "e": "Đức và tài, hồng và chuyên, phẩm chất và năng lực phải thống nhất làm một."}, {"u": "Đ3", "lv": "TH", "q": "Nguyên tắc “nói đi đôi với làm” đối lập hoàn toàn với:", "o": ["Thói đạo đức giả, nói một đằng làm một nẻo, nói nhiều làm ít", "Tinh thần tự phê bình", "Việc nêu gương người tốt, việc tốt", "Tinh thần tập thể"], "e": "“Nói đi đôi với làm” là đặc trưng bản chất của tư tưởng đạo đức Hồ Chí Minh."}, {"u": "Đ3", "lv": "TH", "q": "Nguyên tắc “xây đi đôi với chống” trong xây dựng đạo đức được hiểu là:", "o": ["Muốn xây phải chống, chống nhằm mục đích xây, lấy xây làm chính", "Lấy chống làm chính", "Chỉ cần xây, không cần chống", "Xây và chống tiến hành ở hai giai đoạn khác nhau"], "e": "“Không có ai cái gì cũng tốt, cái gì cũng hay”."}, {"u": "Đ3", "lv": "TH", "q": "Hồ Chí Minh lưu ý: “Đấu tranh chống chủ nghĩa cá nhân không phải là …”", "o": ["“giày xéo lên lợi ích cá nhân”", "phê bình người khác", "thực hành tiết kiệm", "tu dưỡng bản thân"], "e": "Lợi ích cá nhân chính đáng vẫn cần được tôn trọng."}, {"u": "Đ3", "lv": "TH", "q": "Câu “Đạo đức cách mạng không phải trên trời sa xuống. Nó do đấu tranh, rèn luyện bền bỉ hằng ngày mà phát triển và củng cố” nhấn mạnh nguyên tắc:", "o": ["Tu dưỡng đạo đức suốt đời", "Xây đi đôi với chống", "Nói đi đôi với làm", "Nêu gương về đạo đức"], "e": "“Cũng như ngọc càng mài càng sáng, vàng càng luyện càng trong”."}, {"u": "C2", "lv": "TH", "q": "Theo Hồ Chí Minh, “con người là mục tiêu của cách mạng” được cụ thể hóa thành:", "o": ["Giải phóng dân tộc, giải phóng xã hội, giải phóng giai cấp, giải phóng con người", "Phát triển kinh tế, văn hóa, xã hội", "Độc lập, tự do, hạnh phúc", "Dân giàu, nước mạnh, dân chủ, công bằng, văn minh"], "e": "Giải phóng dân tộc mở đường cho giải phóng xã hội, giai cấp và con người."}, {"u": "C2", "lv": "TH", "q": "Câu nói nào của Hồ Chí Minh thể hiện “con người là động lực của cách mạng”?", "o": ["“Trong bầu trời không gì quý bằng nhân dân. Trong thế giới không gì mạnh bằng sức mạnh đoàn kết của nhân dân”", "“Thanh niên phải có đức, có tài”", "“Dân ta phải biết sử ta”", "“Hiền, dữ phải đâu là tính sẵn”"], "e": "Ngoài ra: “Dễ trăm lần không dân cũng chịu, khó vạn lần dân liệu cũng xong”."}, {"u": "Đ3", "lv": "VD", "q": "Một sinh viên cho rằng: “Chỉ cần học giỏi chuyên môn là đủ, đạo đức là chuyện phụ”. Theo tư tưởng Hồ Chí Minh, quan điểm này:", "o": ["Sai, vì đức là gốc; có tài mà không có đức thì vô dụng, thậm chí có hại", "Đúng, vì thời đại số chỉ cần năng lực", "Đúng, vì đạo đức là bẩm sinh", "Sai, vì chỉ cần đạo đức, không cần chuyên môn"], "e": "“Dạy cũng như học phải biết chú trọng cả tài lẫn đức… Nếu không có đạo đức cách mạng thì có tài cũng vô dụng”."}, {"u": "Đ3", "lv": "VD", "q": "Một cán bộ thường phát động “thực hành tiết kiệm” nhưng lại tổ chức tiệc tùng xa hoa bằng tiền công. Hành vi này vi phạm trực tiếp nguyên tắc nào?", "o": ["Nói đi đôi với làm, nêu gương về đạo đức", "Xây đi đôi với chống", "Tinh thần quốc tế trong sáng", "Tu dưỡng đạo đức suốt đời"], "e": "Đồng thời vi phạm chuẩn mực kiệm, liêm. Hồ Chí Minh phê phán “miệng thì nói dân chủ, nhưng làm việc thì họ theo lối quan chủ”."}, {"u": "Đ2", "lv": "VD", "q": "Lớp học quyết định không đóng góp ủng hộ đồng bào vùng lũ vì “cần tiết kiệm quỹ lớp”. Theo Hồ Chí Minh, cách hiểu này:", "o": ["Chưa đúng, vì việc ích lợi cho đồng bào thì tốn bao nhiêu cũng vui lòng; việc đáng tiêu mà không tiêu là bủn xỉn", "Đúng, vì tiết kiệm là trên hết", "Đúng, vì quỹ lớp chỉ dành cho sinh viên", "Chưa đúng, vì phải tiêu hết quỹ lớp"], "e": "“Khi có việc đáng làm, việc ích lợi cho đồng bào, cho Tổ quốc, thì dù bao nhiêu công, tốn bao nhiêu của, cũng vui lòng”."}, {"u": "Đ3", "lv": "VD", "q": "Phong trào lan tỏa “người tốt, việc tốt” trên mạng xã hội là vận dụng quan điểm nào của Hồ Chí Minh?", "o": ["“Lấy gương người tốt, việc tốt để hằng ngày giáo dục lẫn nhau”", "“Xây đi đôi với chống”", "“Văn hóa là một mặt trận”", "“Học để làm gì?”"], "e": "“Từng giọt nước nhỏ thấm vào lòng đất, chảy về một hướng mới thành suối, thành sông… Người tốt, việc tốt nhiều lắm”."}, {"u": "V1", "lv": "VD", "q": "Một bộ phận giới trẻ chạy theo trào lưu ngoại lai, xem nhẹ giá trị truyền thống. Theo Hồ Chí Minh, cách ứng xử đúng là:", "o": ["Lấy văn hóa dân tộc làm gốc, tiếp thu có chọn lọc tinh hoa văn hóa nhân loại", "Cấm hoàn toàn văn hóa nước ngoài", "Để giới trẻ tự do tiếp thu không cần định hướng", "Chỉ giữ văn hóa truyền thống, không tiếp thu cái mới"], "e": "“Tây phương hay Đông phương có cái gì tốt ta học lấy để tạo ra một nền văn hóa Việt Nam”."}, {"u": "C3", "lv": "VD", "q": "Nhà trường chỉ chạy theo thành tích điểm số, xem nhẹ giáo dục “làm người”. Điều này trái với quan điểm nào của Hồ Chí Minh?", "o": ["Giáo dục toàn diện “Đức, Trí, Thể, Mỹ”, trong đó đức là gốc", "Văn hóa phục vụ quần chúng", "Tinh thần quốc tế trong sáng", "Nguyên tắc hiệp thương dân chủ"], "e": "Học để làm việc, làm người, làm cán bộ."}, {"u": "Đ2", "lv": "VD", "q": "Một cán bộ xã có thái độ hách dịch, cửa quyền khi tiếp dân. Theo Hồ Chí Minh, cán bộ này vi phạm yêu cầu gì?", "o": ["“Hiếu với dân”: phải kính trọng, tôn trọng quyền làm chủ của nhân dân, không được lên mặt “quan cách mạng”", "Tinh thần quốc tế trong sáng", "Nguyên tắc tu dưỡng suốt đời", "Yêu cầu bảo vệ bản sắc văn hóa"], "e": "Đảng và Chính phủ là “đầy tớ nhân dân” chứ không phải “quan nhân dân để đè đầu cưỡi cổ nhân dân”."}, {"u": "V2", "lv": "VD", "q": "Một nhà văn dùng tác phẩm để phê phán tham nhũng và ca ngợi những tấm gương tốt. Việc làm này thể hiện quan điểm nào?", "o": ["Văn hóa là một mặt trận, ngòi bút là vũ khí “phò chính trừ tà”", "Văn hóa thuộc kiến trúc thượng tầng", "Văn hóa hoàn toàn phụ thuộc kinh tế", "Văn hóa chỉ có chức năng giải trí"], "e": "Phê bình nghiêm khắc thói xấu như tham ô, lười biếng, lãng phí, quan liêu; ca tụng chân thật người tốt việc tốt."}, {"u": "H", "lv": "VD", "q": "Câu hỏi “Học để làm gì? Học để phục vụ ai?” mà Hồ Chí Minh đặt ra gợi ý cho sinh viên điều gì?", "o": ["Xác định động cơ học tập đúng: học để làm việc, làm người, phục vụ Tổ quốc và nhân dân", "Học để có bằng cấp", "Học để đi làm ở nước ngoài", "Học chỉ để thỏa mãn sở thích"], "e": "“Đó là hai câu hỏi cần phải trả lời dứt khoát thì mới có phương hướng để sửa chữa khuyết điểm của mình”."}, {"u": "Đ2", "lv": "VD", "q": "Một bạn học từng vi phạm kỷ luật nay đang cố gắng sửa chữa. Theo tư tưởng Hồ Chí Minh, tập thể lớp nên:", "o": ["Giúp phần tốt của bạn “nảy nở như hoa mùa Xuân”, phần xấu mất dần", "Xa lánh để giữ uy tín tập thể", "Nhắc lại lỗi cũ thường xuyên để răn đe", "Không quan tâm vì đó là việc riêng"], "e": "Nâng con người lên, kể cả người nhất thời lầm lạc; không phải thái độ “dĩ hòa vi quý” hay vùi dập con người."}, {"u": "V2", "lv": "VD", "q": "Một bài báo viết dài dòng, dùng nhiều chữ cầu kỳ khiến người dân khó hiểu. Theo Hồ Chí Minh, bài viết vi phạm yêu cầu:", "o": ["Văn hóa phục vụ quần chúng: viết thiết thực, tránh “lối viết rau muống”, nói ít nhưng thấm thía", "Văn hóa là động lực", "Giữ gìn bản sắc dân tộc", "Xây đi đôi với chống"], "e": "“Nói ít, nhưng nói cho thấm thía, nói cho chắc chắn, thì quần chúng thích hơn”."}, {"u": "Đ2", "lv": "VD", "q": "Hoạt động tình nguyện, hiến máu, hỗ trợ người yếu thế của sinh viên thể hiện rõ nhất chuẩn mực nào?", "o": ["Thương yêu con người, sống có tình có nghĩa", "Chí công vô tư", "Tinh thần quốc tế trong sáng", "Cần, kiệm"], "e": "Tình yêu thương dành trước hết cho người nghèo khổ, bị mất quyền, bị áp bức."}, {"u": "C3", "lv": "VDC", "q": "Nhận định nào SAI với quan điểm của Hồ Chí Minh về xây dựng con người xã hội chủ nghĩa?", "o": ["Phải chờ kinh tế, văn hóa phát triển cao rồi mới xây dựng con người xã hội chủ nghĩa", "Xây dựng con người xã hội chủ nghĩa được đặt ra ngay từ đầu", "Con người xã hội chủ nghĩa là động lực xây dựng chủ nghĩa xã hội", "Cần nâng cao trình độ giác ngộ của số đông trung gian để kéo chậm tiến"], "e": "Không phải chờ kinh tế phát triển rồi mới xây dựng con người; cũng không phải xây dựng xong con người rồi mới xây dựng chủ nghĩa xã hội."}, {"u": "C2", "lv": "VDC", "q": "Nhận định nào đúng về quan hệ giữa các cuộc giải phóng trong tư tưởng Hồ Chí Minh?", "o": ["Chúng kết hợp chặt chẽ; giải phóng dân tộc đã có một phần giải phóng xã hội, con người và mở đường cho các giải phóng tiếp theo", "Giải phóng con người phải thực hiện trước giải phóng dân tộc", "Các cuộc giải phóng tách biệt, không liên quan", "Giải phóng giai cấp quan trọng hơn giải phóng dân tộc trong mọi hoàn cảnh"], "e": "Mục tiêu được cụ thể hóa qua ba giai đoạn: giải phóng dân tộc – xây dựng chế độ dân chủ nhân dân – tiến dần lên chủ nghĩa xã hội."}, {"u": "Đ2", "lv": "VDC", "q": "Vì sao Hồ Chí Minh khẳng định “trung với nước phải gắn liền hiếu với dân”?", "o": ["Vì nước là của dân, “bao nhiêu lợi ích đều vì dân, bao nhiêu quyền hạn đều của dân”; trung với nước phải biểu hiện ở phục vụ nhân dân", "Vì dân phải trung thành với Nhà nước", "Vì hiếu với dân chỉ là hình thức", "Vì đó là quan niệm của đạo Nho"], "e": "Hiếu với dân là thương dân, tin dân, thân dân, học hỏi dân, lấy dân làm gốc, hết lòng phục vụ nhân dân."}, {"u": "Đ1", "lv": "VDC", "q": "Nhận định nào nêu đúng đặc điểm nổi bật của tư tưởng đạo đức Hồ Chí Minh?", "o": ["Là đạo đức trong hành động, lấy hiệu quả thực tế làm thước đo", "Là hệ thống lý thuyết đạo đức thuần túy, trừu tượng", "Chủ yếu kế thừa nguyên vẹn đạo đức Nho giáo", "Chỉ áp dụng cho cán bộ, đảng viên"], "e": "“Hãy kiên quyết chống bệnh nói suông, thói phô trương hình thức”."}, {"u": "V1", "lv": "VDC", "q": "Điểm đặc biệt của quan niệm văn hóa mà Hồ Chí Minh nêu năm 1943 là:", "o": ["Là quan niệm văn hóa duy nhất theo nghĩa rộng, ra đời khi UNESCO chưa thành lập, trong bối cảnh cả nước tập trung giải phóng dân tộc", "Được UNESCO trực tiếp soạn thảo", "Chỉ bàn về văn học, nghệ thuật", "Coi văn hóa là toàn bộ đời sống tinh thần theo nghĩa hẹp"], "e": "Từ sau Cách mạng Tháng Tám, Hồ Chí Minh bàn đến văn hóa chủ yếu theo nghĩa hẹp."}, {"u": "Đ3", "lv": "VDC", "q": "Theo tư tưởng Hồ Chí Minh, trong xây dựng đạo đức mới, nhận định nào đúng về giáo dục và tự giáo dục?", "o": ["Sự giáo dục là không thể thiếu, nhưng sự tự giáo dục, tự trau dồi đạo đức ở mỗi người còn quan trọng hơn", "Chỉ cần giáo dục từ bên ngoài", "Tự giáo dục không cần thiết nếu có pháp luật nghiêm", "Giáo dục đạo đức chỉ cần ở tuổi trẻ"], "e": "Phải khơi dậy ý thức đạo đức lành mạnh để mọi người tự giác nhận thức trách nhiệm đạo đức của mình."}, {"u": "Đ1", "lv": "VDC", "q": "“Tuy năng lực và công việc của mỗi người khác nhau… nhưng ai giữ được đạo đức đều là người cao thượng”. Câu nói này cho thấy:", "o": ["Đạo đức là thước đo lòng cao thượng, không phụ thuộc vào vị trí hay công việc to nhỏ", "Chỉ người làm việc lớn mới cao thượng", "Năng lực quyết định giá trị con người", "Đạo đức chỉ cần thiết với người lãnh đạo"], "e": "Thực hành đạo đức tạo sức mạnh nội sinh giúp vượt qua mọi thử thách."}], "tf": [{"s": "Quan niệm văn hóa mà Hồ Chí Minh nêu năm 1943 là quan niệm theo nghĩa rộng, bao gồm toàn bộ những sáng tạo và phát minh của loài người.", "a": true, "e": "Đúng. “Toàn bộ những sáng tạo và phát minh đó tức là văn hóa”."}, {"s": "Theo Hồ Chí Minh, văn hóa hoàn toàn phụ thuộc vào kinh tế.", "a": false, "e": "Sai. Văn hóa không hoàn toàn phụ thuộc kinh tế mà có vai trò tác động tích cực trở lại kinh tế."}, {"s": "Trong kháng chiến chống Pháp, nền văn hóa mới được xác định có tính chất dân tộc, khoa học, đại chúng.", "a": true, "e": "Đúng. Đây là phương châm của Đề cương văn hóa Việt Nam (1943) được Hồ Chí Minh khẳng định lại."}, {"s": "Hồ Chí Minh chủ trương dứt bỏ văn hóa Pháp vì đó là văn hóa của kẻ xâm lược.", "a": false, "e": "Sai. Người nói: “Các bạn chớ hiểu là tôi cho rằng chúng tôi cần dứt bỏ văn hóa nào đó, dù là văn hóa Pháp đi nữa”."}, {"s": "“Nói đi đôi với làm” là một chuẩn mực đạo đức cách mạng.", "a": false, "e": "Sai. Đó là nguyên tắc xây dựng đạo đức, không phải chuẩn mực."}, {"s": "Cần, kiệm, liêm, chính là những khái niệm hoàn toàn mới do Hồ Chí Minh đưa ra.", "a": false, "e": "Sai. Đây là khái niệm cũ trong đạo đức truyền thống, được Hồ Chí Minh lọc bỏ nội dung không phù hợp và đưa vào nội dung mới."}, {"s": "Theo Hồ Chí Minh, tiết kiệm không phải là bủn xỉn.", "a": true, "e": "Đúng. Việc đáng tiêu mà không tiêu là bủn xỉn, chứ không phải là kiệm."}, {"s": "Theo Hồ Chí Minh, chỉ cán bộ, đảng viên mới cần thực hành cần, kiệm, liêm, chính.", "a": false, "e": "Sai. Ai cũng phải thực hiện, song cán bộ, đảng viên phải thực hành trước để làm kiểu mẫu cho dân."}, {"s": "Đấu tranh chống chủ nghĩa cá nhân nghĩa là phải hy sinh mọi lợi ích cá nhân.", "a": false, "e": "Sai. “Đấu tranh chống chủ nghĩa cá nhân không phải là giày xéo lên lợi ích cá nhân”."}, {"s": "Theo Hồ Chí Minh, đạo đức là cái bẩm sinh, “nhất thành bất biến”.", "a": false, "e": "Sai. Đạo đức được hình thành, phát triển do giáo dục, rèn luyện và tu dưỡng; “không phải trên trời sa xuống”."}, {"s": "Ý “trăm năm trồng người” vốn bắt nguồn từ lời của Quản Trọng thời Xuân Thu.", "a": true, "e": "Đúng. “Bách niên chi kế mạc như thụ nhân” – kế hoạch trăm năm không gì bằng trồng người."}, {"s": "Theo Hồ Chí Minh, phải xây dựng xong con người xã hội chủ nghĩa rồi mới xây dựng chủ nghĩa xã hội.", "a": false, "e": "Sai. Xây dựng con người xã hội chủ nghĩa và xây dựng chủ nghĩa xã hội diễn ra song song, ngay từ đầu."}], "fill": [{"t": "“Dân ta phải biết sử ta / Cho tường gốc tích nước nhà ___.”", "a": "Việt Nam", "d": ["Lạc Hồng", "non sông", "Đông Á"]}, {"t": "“Cũng như sông thì có nguồn mới có nước… Cây phải có ___, không có gốc thì cây héo.”", "a": "gốc", "d": ["rễ", "đất", "nước"]}, {"t": "“Người cách mạng phải có đạo đức, không có đạo đức thì dù tài giỏi mấy cũng không ___ được nhân dân.”", "a": "lãnh đạo", "d": ["đoàn kết", "thuyết phục", "phục vụ"]}, {"t": "“Trước mặt quần chúng, không phải ta cứ viết lên trán chữ “___” mà ta được họ yêu mến.”", "a": "cộng sản", "d": ["cách mạng", "cán bộ", "đảng viên"]}, {"t": "“Một dân tộc biết cần, kiệm, biết liêm, là một dân tộc giàu về vật chất, mạnh về tinh thần, là một dân tộc ___.”", "a": "văn minh tiến bộ", "d": ["độc lập tự do", "hùng cường vững mạnh", "ấm no hạnh phúc"]}, {"t": "“Đối với các dân tộc phương Đông… một tấm gương sống còn có giá trị hơn một trăm bài ___.”", "a": "diễn văn tuyên truyền", "d": ["báo cáo chính trị", "sách lý luận", "lời khuyên răn"]}, {"t": "“Cũng như ngọc càng mài càng sáng, vàng càng luyện càng ___.”", "a": "trong", "d": ["quý", "bền", "đẹp"]}, {"t": "“Ta phải biết làm cho phần tốt ở trong mỗi con người nảy nở như hoa ___ và phần xấu bị mất dần đi.”", "a": "mùa Xuân", "d": ["mùa Hạ", "sen", "hướng dương"]}, {"t": "“Hiền, dữ phải đâu là tính sẵn / Phần nhiều do ___ mà nên.”", "a": "giáo dục", "d": ["hoàn cảnh", "gia đình", "số phận"]}, {"t": "“Muốn nên sự nghiệp lớn / Tinh thần càng phải ___.”", "a": "cao", "d": ["vững", "bền", "mạnh"]}], "cats": ["Cần", "Kiệm", "Liêm", "Chính", "Chí công vô tư"], "sort": [{"t": "Lao động có kế hoạch, sáng tạo, năng suất cao; không lười biếng", "c": 0}, {"t": "“Lao động là nghĩa vụ thiêng liêng, là nguồn sống, nguồn hạnh phúc của chúng ta”", "c": 0}, {"t": "Không xa xỉ, không hoang phí, không bừa bãi", "c": 1}, {"t": "Tiết kiệm thì giờ, sức lao động, tiền của của dân, của nước", "c": 1}, {"t": "Không tham địa vị, không tham tiền tài, không ham người tâng bốc mình", "c": 2}, {"t": "“Chỉ có một thứ ham là ham học, ham làm, ham tiến bộ”", "c": 2}, {"t": "Đối với mình chớ tự kiêu, tự đại; đối với người chớ nịnh hót người trên, chớ xem khinh người dưới", "c": 3}, {"t": "Việc thiện thì dù nhỏ mấy cũng làm, việc ác thì dù nhỏ mấy cũng tránh", "c": 3}, {"t": "“Lo trước thiên hạ, vui sau thiên hạ”", "c": 4}, {"t": "Khi làm việc gì cũng đừng nghĩ đến mình trước, khi hưởng thụ thì mình nên đi sau", "c": 4}, {"t": "Không thiên tư, thiên vị; đặt lợi ích của Đảng, của nhân dân lên trên hết", "c": 4}, {"t": "Thẳng thắn, đứng đắn; điều gì không đứng đắn, thẳng thắn tức là tà", "c": 3}]};
+const CASES = [{"t": "“Điểm danh hộ” và chuyện quay cóp", "s": "Trong nhóm chat lớp, vài bạn rủ nhau điểm danh hộ và chia sẻ đáp án trong giờ kiểm tra trực tuyến. Một số bạn cho rằng “ai cũng làm, có gì đâu”. Bạn lớp trưởng phân vân có nên lên tiếng hay không.", "q": ["Hành vi này vi phạm những chuẩn mực, nguyên tắc đạo đức nào theo Hồ Chí Minh?", "Nếu là lớp trưởng, em sẽ vận dụng nguyên tắc “xây đi đôi với chống” và “nêu gương” như thế nào?", "Đề xuất hai việc làm cụ thể để xây dựng văn hóa trung thực trong lớp."], "g": ["Vi phạm chữ “Chính”: không thẳng thắn, đứng đắn (“điều gì không đứng đắn, thẳng thắn tức là tà”); vi phạm yêu cầu trung thực, trách nhiệm.", "“Xây đi đôi với chống”: muốn xây phải chống, lấy xây làm chính — vừa góp ý thẳng thắn, vừa xây dựng quy ước lớp.", "Nêu gương: “Trước hết, mình phải làm gương”; không “dĩ hòa vi quý” nhưng cũng không vùi dập người mắc lỗi.", "Tu dưỡng suốt đời: đạo đức “không phải trên trời sa xuống”, cần rèn luyện từ những việc nhỏ hằng ngày."]}, {"t": "Trend ngoại và áo dài ngày lễ", "s": "Câu lạc bộ sinh viên tranh luận chủ đề đêm văn nghệ: một nhóm muốn toàn bộ tiết mục nhảy theo trend nước ngoài, nhóm khác muốn giữ các tiết mục dân ca, áo dài. Cuộc tranh luận trở nên gay gắt.", "q": ["Vận dụng quan điểm Hồ Chí Minh về giữ gìn bản sắc dân tộc và tiếp thu văn hóa nhân loại, em đánh giá hai ý kiến trên thế nào?", "Đề xuất phương án chương trình dung hòa hai ý kiến."], "g": ["Phải lấy văn hóa dân tộc làm gốc, đó là điều kiện, cơ sở để tiếp thu văn hóa nhân loại.", "Tiêu chí tiếp thu: “có cái gì hay, cái gì tốt là ta học lấy”, toàn diện Đông, Tây, kim, cổ; tránh trở thành kẻ bắt chước.", "Mục đích tiếp thu: làm giàu cho văn hóa Việt Nam, “trau dồi cho văn hóa Việt Nam thật có tinh thần thuần túy Việt Nam”.", "Phương án gợi ý: kết hợp chất liệu dân gian với hình thức biểu diễn hiện đại."]}, {"t": "Quỹ lớp: liên hoan hay cứu trợ?", "s": "Cuối học kỳ, quỹ lớp còn một khoản. Một nhóm muốn tổ chức liên hoan thật hoành tráng ở nhà hàng; nhóm khác đề nghị trích một phần ủng hộ đồng bào vùng lũ, phần còn lại liên hoan đơn giản.", "q": ["Vận dụng quan điểm của Hồ Chí Minh về “Kiệm” để phân tích hai đề xuất.", "Chuẩn mực “thương yêu con người, sống có tình có nghĩa” gợi ý gì cho quyết định của lớp?"], "g": ["Kiệm là “không xa xỉ, không hoang phí, không bừa bãi”; không “liên hoan chè chén lu bù”.", "“Tiết kiệm không phải là bủn xỉn… Khi có việc đáng làm, việc ích lợi cho đồng bào, cho Tổ quốc, thì dù bao nhiêu công, tốn bao nhiêu của, cũng vui lòng”.", "Thương yêu con người trước hết dành cho người nghèo khổ, gặp hoạn nạn; phải thể hiện bằng hành động cụ thể, thiết thực.", "Quyết định nên được bàn bạc dân chủ, tôn trọng ý kiến các thành viên."]}];
+const SUM = {"lead": "Chương 6 trình bày ba trụ cột trong di sản tư tưởng Hồ Chí Minh: văn hóa, đạo đức và con người, cùng sự vận dụng của Đảng trong giai đoạn hiện nay. Ba nội dung gắn bó chặt chẽ: văn hóa là nền tảng tinh thần, đạo đức là gốc của con người, và con người vừa là mục tiêu, vừa là động lực của cách mạng.", "sections": [{"k": "I", "title": "Tư tưởng Hồ Chí Minh về văn hóa", "tone": "gold", "items": [{"h": "Quan niệm về văn hóa", "p": ["Bốn cách tiếp cận: nghĩa rộng (mọi phương thức sinh hoạt); nghĩa hẹp (đời sống tinh thần, thuộc kiến trúc thượng tầng); nghĩa hẹp hơn (trường học, xóa mù chữ); theo “phương thức sử dụng công cụ sinh hoạt”.", "Tháng 8/1943, trong nhà tù Tưởng Giới Thạch, Người nêu định nghĩa văn hóa theo nghĩa rộng: “Toàn bộ những sáng tạo và phát minh đó tức là văn hóa”."]}, {"h": "Quan hệ giữa văn hóa và các lĩnh vực", "p": ["Chính trị: giải phóng chính trị mở đường cho văn hóa; văn hóa ở trong chính trị, phục vụ nhiệm vụ chính trị.", "Kinh tế: văn hóa thuộc kiến trúc thượng tầng nhưng tác động tích cực trở lại kinh tế.", "Xã hội: “Xã hội thế nào văn hóa thế ấy”.", "Bản sắc và tiếp biến: lấy văn hóa dân tộc làm gốc; “có cái gì hay, cái gì tốt là ta học lấy”."]}, {"h": "Vai trò của văn hóa", "p": ["Văn hóa là mục tiêu và động lực của sự nghiệp cách mạng.", "Văn hóa là một mặt trận; văn nghệ sĩ là chiến sĩ, ngòi bút là vũ khí “phò chính trừ tà”.", "Văn hóa phục vụ quần chúng nhân dân: “từ trong quần chúng ra, về sâu trong quần chúng”."]}, {"h": "Xây dựng nền văn hóa mới", "p": ["1943: năm nội dung — xây dựng tâm lý, luân lý, xã hội, chính trị, kinh tế.", "Kháng chiến chống Pháp: nền văn hóa dân tộc, khoa học, đại chúng.", "Xây dựng CNXH: nội dung xã hội chủ nghĩa và tính chất dân tộc."]}]}, {"k": "II", "title": "Tư tưởng Hồ Chí Minh về đạo đức", "tone": "jade", "items": [{"h": "Đạo đức là gốc, là nền tảng", "p": ["Đạo đức là gốc, là nền tảng tinh thần của xã hội, của người cách mạng: “Cũng như sông thì có nguồn… Cây phải có gốc”.", "Đức và tài thống nhất, đức là gốc; “nếu không có đạo đức cách mạng thì có tài cũng vô dụng”.", "Đạo đức là thước đo lòng cao thượng của con người."]}, {"h": "Bốn chuẩn mực đạo đức cách mạng", "p": ["Trung với nước, hiếu với dân — phẩm chất bao trùm, quan trọng nhất.", "Cần, kiệm, liêm, chính, chí công vô tư — nội dung cốt lõi, gắn với hoạt động hằng ngày.", "Thương yêu con người, sống có tình có nghĩa.", "Tinh thần quốc tế trong sáng."]}, {"h": "Ba nguyên tắc xây dựng đạo đức", "p": ["Nói đi đôi với làm, nêu gương về đạo đức.", "Xây đi đôi với chống: lấy xây làm chính; chống chủ nghĩa cá nhân.", "Tu dưỡng đạo đức suốt đời: “ngọc càng mài càng sáng, vàng càng luyện càng trong”."]}]}, {"k": "III", "title": "Tư tưởng Hồ Chí Minh về con người", "tone": "coral", "items": [{"h": "Quan niệm về con người", "p": ["Con người là một chỉnh thể thống nhất trí lực, tâm lực, thể lực; là con người xã hội, lịch sử – cụ thể.", "“Chữ người”: nghĩa hẹp là gia đình, họ hàng, bè bạn; nghĩa rộng là đồng bào cả nước; rộng hơn nữa là cả loài người."]}, {"h": "Vai trò của con người", "p": ["Con người là mục tiêu của cách mạng: giải phóng dân tộc, giải phóng xã hội, giải phóng giai cấp, giải phóng con người.", "Con người là động lực của cách mạng: “Trong thế giới không gì mạnh bằng sức mạnh đoàn kết của nhân dân”."]}, {"h": "Xây dựng con người", "p": ["Ý nghĩa: “Vì lợi ích trăm năm thì phải trồng người”; “Muốn xây dựng CNXH, trước hết cần phải có những con người XHCN”.", "Nội dung: con người toàn diện, vừa “hồng” vừa “chuyên”.", "Phương pháp: tự rèn luyện, nêu gương, coi trọng giáo dục, phát huy vai trò của tổ chức và các phong trào thi đua."]}]}, {"k": "IV", "title": "Vận dụng trong giai đoạn hiện nay", "tone": "blue", "items": [{"h": "Xây dựng và phát triển văn hóa, con người", "p": ["Nghị quyết Trung ương 5 khóa VIII (7/1998): nền văn hóa Việt Nam tiên tiến, đậm đà bản sắc dân tộc.", "Cương lĩnh (bổ sung, phát triển năm 2011): con người là trung tâm, là chủ thể của chiến lược phát triển.", "Nghị quyết 33-NQ/TW (2014) và Đại hội XIII: văn hóa, con người là sức mạnh nội sinh, động lực phát triển."]}, {"h": "Xây dựng đạo đức cách mạng", "p": ["Học tập tấm gương trung với nước, hiếu với dân; cần, kiệm, liêm, chính, chí công vô tư; khiêm tốn, trung thực, trách nhiệm.", "Tin dân, kính dân, nhân ái, khoan dung; ý chí, nghị lực vượt khó; yêu nước gắn với tinh thần quốc tế.", "Sinh viên thi đua học tập, rèn luyện, trả lời câu hỏi: “Học để làm gì? Học để phục vụ ai?”."]}]}], "keys": ["Nghĩa rộng 1943", "Dân tộc · Khoa học · Đại chúng", "Văn hóa là một mặt trận", "Đạo đức là gốc", "4 chuẩn mực", "3 nguyên tắc", "Trồng người", "4 cuộc giải phóng", "Hồng và chuyên"]};
+const LVN = {NB:"Nhận biết",TH:"Thông hiểu",VD:"Vận dụng",VDC:"Vận dụng cao"};
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
+const KEYS = "ABCD";
+
+// persistent best scores (per viewer)
+let best = {};
+try { best = JSON.parse(localStorage.getItem("c6best")||"{}"); } catch(e){}
+function saveBest(k,v){ if(!(best[k]>=v)){ best[k]=v; try{localStorage.setItem("c6best",JSON.stringify(best));}catch(e){} } renderScore(); }
+function renderScore(){
+  const items=[["fill","Điền khuyết",D.fill.length],["order","Cần Kiệm Liêm Chính",D.sort.length],["tf","Đúng/Sai",D.tf.length],["bank","Luyện tập",D.mcq.length],["exam","Thi thử","10đ"]];
+  $("#score").innerHTML = items.map(([k,n,t])=>`<span class="chip">${n}: <b>${best[k]!=null?best[k]:"–"}</b>/${t}</span>`).join("");
+}
+
+let current = "fill";
+document.querySelectorAll(".tablist button").forEach(b=>b.onclick=()=>show(b.dataset.t));
+function show(t){
+  current=t;
+  document.querySelectorAll(".tablist button").forEach(b=>b.setAttribute("aria-selected", b.dataset.t===t));
+  ({sum:Summary,fill:Fill,order:Order,tf:TF,bank:Bank,exam:Exam,cases:Cases})[t]();
+}
+
+/* ---------- 0. Summary ---------- */
+function Summary(){
+  $("#main").innerHTML=`<section class="panel"><h2>Tóm tắt nội dung chương</h2><p class="sum-lead">${esc(SUM.lead)}</p>
+  <div class="keys">${SUM.keys.map(k=>`<span>${esc(k)}</span>`).join("")}</div>
+  <div class="pillars">${SUM.sections.map(s=>`<article class="pillar tone-${s.tone}"><div class="pillar-head"><span class="num">${s.k}</span><h3>${esc(s.title)}</h3></div><div class="pillar-body">${s.items.map(it=>`<div><h4>${esc(it.h)}</h4><ul>${it.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div></article>`).join("")}</div>
+  <div class="row"><button class="btn primary" id="go1">Bắt đầu vòng 1 · Điền khuyết</button></div></section>`;
+  $("#go1").onclick=()=>show("fill");
+}
+
+/* ---------- 1. Fill ---------- */
+function Fill(){
+  let i=0, right=0; const items=shuffle(D.fill);
+  function draw(){
+    if(i>=items.length){ saveBest("fill",right);
+      $("#main").innerHTML=`<section class="panel"><h2>Điền khuyết</h2><div class="result"><div>Kết quả vòng khởi động</div><div class="big">${right}<span>/${items.length}</span></div><div>${right===items.length?"Thuộc lời Bác rất chắc!":"Xem lại các trích dẫn chưa đúng rồi chơi lại nhé."}</div></div><div class="row"><button class="btn primary" id="again">Chơi lại</button><button class="btn" id="next">Sang vòng 2</button></div></section>`;
+      $("#again").onclick=Fill; $("#next").onclick=()=>show("order"); return; }
+    const it=items[i]; const words=shuffle([it.a,...it.d]);
+    $("#main").innerHTML=`<section class="panel"><h2>Điền khuyết lời Bác</h2><p class="lead">Chọn từ đúng để hoàn thành trích dẫn trong giáo trình.</p>
+    <div class="progress"><i style="width:${i/items.length*100}%"></i></div>
+    <div class="qbox"><div class="qmeta">Câu ${i+1}/${items.length}</div>
+    <p class="fill-q" id="fq">${esc(it.t).replace("___",'<span class="blank" id="bl">?</span>')}</p>
+    <div class="words">${words.map(w=>`<button class="opt" style="width:auto" data-w="${esc(w)}">${esc(w)}</button>`).join("")}</div>
+    <div id="fb"></div></div></section>`;
+    document.querySelectorAll(".words .opt").forEach(b=>b.onclick=()=>{
+      const ok=b.dataset.w===it.a; if(ok) right++;
+      document.querySelectorAll(".words .opt").forEach(x=>{x.disabled=true; if(x.dataset.w===it.a) x.classList.add("right"); else if(x===b) x.classList.add("wrong");});
+      $("#bl").textContent=it.a;
+      $("#fb").innerHTML=`<div class="row" style="justify-content:space-between"><strong style="color:var(--${ok?"ok":"bad"})">${ok?"Chính xác!":"Chưa đúng."}</strong><button class="btn primary" id="nx">Tiếp</button></div>`;
+      $("#nx").onclick=()=>{i++;draw();}; $("#nx").focus();
+    });
+  }
+  draw();
+}
+
+/* ---------- 2. Sort (Cần Kiệm Liêm Chính) ---------- */
+function Order(){
+  let i=0,right=0; const items=shuffle(D.sort);
+  function draw(){
+    if(i>=items.length){ saveBest("order",right);
+      $("#main").innerHTML=`<section class="panel"><h2>Cần · Kiệm · Liêm · Chính · Chí công vô tư</h2><div class="result"><div>Phân loại đúng</div><div class="big">${right}<span>/${items.length}</span></div><div>“Thiếu một đức, thì không thành người.”</div></div><div class="row"><button class="btn primary" id="again">Chơi lại</button><button class="btn" id="next">Sang vòng 3</button></div></section>`;
+      $("#again").onclick=Order; $("#next").onclick=()=>show("tf"); return; }
+    const it=items[i];
+    $("#main").innerHTML=`<section class="panel"><h2>Cần · Kiệm · Liêm · Chính · Chí công vô tư</h2><p class="lead">Mỗi thẻ là một biểu hiện hoặc lời dạy của Bác. Hãy xếp thẻ vào đúng đức tính.</p>
+    <div class="progress"><i style="width:${i/items.length*100}%"></i></div>
+    <div class="qbox"><div class="qmeta">Thẻ ${i+1}/${items.length}</div><p class="qtext sortcard">${esc(it.t)}</p>
+    <div class="bins">${D.cats.map((c,k)=>`<button class="opt bin" data-k="${k}">${esc(c)}</button>`).join("")}</div><div id="fb"></div></div></section>`;
+    document.querySelectorAll(".bin").forEach(b=>b.onclick=()=>{
+      const ok=+b.dataset.k===it.c; if(ok) right++;
+      document.querySelectorAll(".bin").forEach(x=>{x.disabled=true; if(+x.dataset.k===it.c) x.classList.add("right"); else if(x===b) x.classList.add("wrong");});
+      $("#fb").innerHTML=`<div class="row" style="justify-content:space-between"><strong style="color:var(--${ok?"ok":"bad"})">${ok?"Chính xác!":"Đây là biểu hiện của chữ “"+esc(D.cats[it.c])+"”."}</strong><button class="btn primary" id="nx">Tiếp</button></div>`;
+      $("#nx").onclick=()=>{i++;draw();}; $("#nx").focus();
+    });
+  }
+  draw();
+}
+
+/* ---------- 3. True/False ---------- */
+function TF(){
+  let i=0,right=0; const items=shuffle(D.tf);
+  function draw(){
+    if(i>=items.length){ saveBest("tf",right);
+      $("#main").innerHTML=`<section class="panel"><h2>Đúng hay sai</h2><div class="result"><div>Bẫy đã vượt qua</div><div class="big">${right}<span>/${items.length}</span></div><div>Các nhận định sai thường đánh tráo khái niệm, ví dụ nhầm “nguyên tắc” xây dựng đạo đức với “chuẩn mực” đạo đức.</div></div><div class="row"><button class="btn primary" id="again">Chơi lại</button><button class="btn" id="next">Sang vòng 4</button></div></section>`;
+      $("#again").onclick=TF; $("#next").onclick=()=>show("bank"); return; }
+    const it=items[i];
+    $("#main").innerHTML=`<section class="panel"><h2>Đúng hay sai: gỡ bẫy</h2><p class="lead">Mỗi nhận định dưới đây có thể chứa một chi tiết bị đánh tráo. Hãy đọc kỹ từng chữ.</p>
+    <div class="progress"><i style="width:${i/items.length*100}%"></i></div>
+    <div class="qbox"><div class="qmeta">Nhận định ${i+1}/${items.length}</div><p class="qtext">${esc(it.s)}</p>
+    <div class="tfbtns"><button class="opt" data-v="1">Đúng</button><button class="opt" data-v="0">Sai</button></div><div id="fb"></div></div></section>`;
+    document.querySelectorAll(".tfbtns .opt").forEach(b=>b.onclick=()=>{
+      const v=b.dataset.v==="1", ok=v===it.a; if(ok) right++;
+      document.querySelectorAll(".tfbtns .opt").forEach(x=>{x.disabled=true; if((x.dataset.v==="1")===it.a) x.classList.add("right"); else if(x===b) x.classList.add("wrong");});
+      $("#fb").innerHTML=`<div class="exp"><strong>${ok?"Chính xác!":"Chưa đúng."}</strong>${esc(it.e)}</div><div class="row" style="justify-content:flex-end"><button class="btn primary" id="nx">Tiếp</button></div>`;
+      $("#nx").onclick=()=>{i++;draw();}; $("#nx").focus();
+    });
+  }
+  draw();
+}
+
+/* ---------- MCQ renderer ---------- */
+function mcqBox(q, idx, total, opts, onPick, reveal){
+  return `<div class="qbox"><div class="qmeta"><span class="lv lv-${q.lv}">${LVN[q.lv]}</span>Câu ${idx}/${total}</div>
+  <p class="qtext">${esc(q.q)}</p><div class="opts">${opts.map((o,j)=>`<button class="opt" data-j="${j}"><span class="k">${KEYS[j]}</span><span>${esc(o)}</span></button>`).join("")}</div><div id="fb"></div></div>`;
+}
+
+/* ---------- 4. Bank ---------- */
+let bankLv="ALL";
+function Bank(){
+  const list=D.mcq.map((q,k)=>({...q,k})).filter(q=>bankLv==="ALL"||q.lv===bankLv);
+  let i=0,right=0,done=0;
+  function draw(){
+    const q=list[i]; const opts=shuffle(q.o); const correct=q.o[0];
+    $("#main").innerHTML=`<section class="panel"><h2>Luyện 60 câu theo mức độ</h2><p class="lead">Chọn đáp án để xem ngay giải thích. Lọc theo mức độ nhận thức để ôn có trọng tâm.</p>
+    <div class="filters">${["ALL","NB","TH","VD","VDC"].map(l=>`<button aria-pressed="${bankLv===l}" data-l="${l}">${l==="ALL"?"Tất cả ("+D.mcq.length+")":LVN[l]+" ("+D.mcq.filter(x=>x.lv===l).length+")"}</button>`).join("")}</div>
+    <div class="row" style="justify-content:space-between"><span class="chip">Đúng <b>${right}</b>/${done}</span><span class="note">Thứ tự đáp án được đảo mỗi lần</span></div>
+    <div class="progress"><i style="width:${i/list.length*100}%"></i></div>
+    ${mcqBox(q,i+1,list.length,opts)}
+    <div class="row" style="justify-content:space-between"><button class="btn" id="pv" ${i===0?"disabled":""}>Câu trước</button><button class="btn primary" id="nx">${i===list.length-1?"Hoàn thành":"Câu sau"}</button></div></section>`;
+    document.querySelectorAll(".filters button").forEach(b=>b.onclick=()=>{bankLv=b.dataset.l;Bank();});
+    document.querySelectorAll(".opts .opt").forEach(b=>b.onclick=()=>{
+      const pick=opts[+b.dataset.j], ok=pick===correct; done++; if(ok) right++;
+      document.querySelectorAll(".opts .opt").forEach(x=>{x.disabled=true; const o=opts[+x.dataset.j]; if(o===correct) x.classList.add("right"); else if(x===b) x.classList.add("wrong");});
+      $("#fb").innerHTML=`<div class="exp"><strong>${ok?"Chính xác!":"Đáp án đúng: "+esc(correct)}</strong>${esc(q.e)}</div>`;
+      document.querySelector(".chip b").textContent=right; document.querySelector(".chip").lastChild.textContent="/"+done;
+      if(bankLv==="ALL") saveBest("bank",right);
+    });
+    $("#pv").onclick=()=>{i--;draw();};
+    $("#nx").onclick=()=>{ if(i<list.length-1){i++;draw();} else { $("#main").innerHTML=`<section class="panel"><h2>Luyện 60 câu</h2><div class="result"><div>${bankLv==="ALL"?"Toàn bộ ngân hàng":LVN[bankLv]}</div><div class="big">${right}<span>/${list.length}</span></div><div>Sẵn sàng thi thử 25 câu có tính giờ?</div></div><div class="row"><button class="btn primary" id="go">Vào thi thử</button><button class="btn" id="again">Luyện lại</button></div></section>`; $("#go").onclick=()=>show("exam"); $("#again").onclick=Bank; } };
+  }
+  draw();
+}
+
+/* ---------- 5. Exam ---------- */
+let timerId=null;
+function Exam(){
+  clearInterval(timerId);
+  $("#main").innerHTML=`<section class="panel"><h2>Thi thử</h2><p class="lead">25 câu rút ngẫu nhiên từ ngân hàng 60 câu, cơ cấu gần với đề thi: 9 nhận biết, 8 thông hiểu, 5 vận dụng, 3 vận dụng cao. Thời gian 25 phút. Không hiện đáp án cho đến khi nộp bài.</p>
+  <div class="qbox"><div class="row"><span class="chip">25 câu</span><span class="chip">25 phút</span><span class="chip">Thang điểm 10</span></div><div><button class="btn primary" id="start">Bắt đầu làm bài</button></div></div></section>`;
+  $("#start").onclick=startExam;
+}
+function startExam(){
+  const pick=(lv,n)=>shuffle(D.mcq.filter(q=>q.lv===lv)).slice(0,n);
+  const qs=shuffle([...pick("NB",9),...pick("TH",8),...pick("VD",5),...pick("VDC",3)]).map(q=>({...q,opts:shuffle(q.o),ans:null}));
+  let i=0, left=25*60;
+  const tick=()=>{ left--; const el=$("#tm"); if(el) el.textContent=fmt(left); if(left<=0) finish(); };
+  const fmt=s=>`${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
+  timerId=setInterval(tick,1000);
+  function draw(){
+    const q=qs[i];
+    $("#main").innerHTML=`<section class="panel"><div class="row" style="justify-content:space-between"><h2>Thi thử</h2><span class="timer" id="tm">${fmt(left)}</span></div>
+    <div class="progress"><i style="width:${qs.filter(x=>x.ans!=null).length/qs.length*100}%"></i></div>
+    ${mcqBox(q,i+1,qs.length,q.opts)}
+    <div class="row" style="justify-content:space-between"><button class="btn" id="pv" ${i===0?"disabled":""}>Câu trước</button>
+    <span class="note">Đã làm ${qs.filter(x=>x.ans!=null).length}/${qs.length}</span>
+    ${i<qs.length-1?'<button class="btn primary" id="nx">Câu sau</button>':'<button class="btn primary" id="sb">Nộp bài</button>'}</div>
+    <div class="row" style="gap:6px">${qs.map((x,k)=>`<button class="btn" data-go="${k}" style="padding:4px 0;width:34px;font-size:13px;${k===i?"background:var(--ink);color:var(--bg)":x.ans!=null?"background:var(--surface2)":""}">${k+1}</button>`).join("")}</div>
+    <div id="confirm"></div></section>`;
+    document.querySelectorAll(".opts .opt").forEach(b=>{ if(q.ans===+b.dataset.j) b.classList.add("sel"); b.onclick=()=>{q.ans=+b.dataset.j; if(i<qs.length-1){i++;} draw();}; });
+    $("#pv").onclick=()=>{i--;draw();};
+    if($("#nx")) $("#nx").onclick=()=>{i++;draw();};
+    if($("#sb")) $("#sb").onclick=()=>{ const miss=qs.filter(x=>x.ans==null).length;
+      if(miss){ $("#confirm").innerHTML=`<div class="exp"><strong>Còn ${miss} câu chưa làm.</strong><div class="row" style="margin-top:6px"><button class="btn primary" id="yes">Vẫn nộp bài</button><button class="btn" id="no">Làm tiếp</button></div></div>`; $("#yes").onclick=finish; $("#no").onclick=()=>{$("#confirm").innerHTML="";}; }
+      else finish(); };
+    document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{i=+b.dataset.go;draw();});
+  }
+  function finish(){
+    clearInterval(timerId);
+    const r=qs.filter(q=>q.ans!=null&&q.opts[q.ans]===q.o[0]).length; const score=Math.round(r/qs.length*100)/10;
+    saveBest("exam",score);
+    const byLv=["NB","TH","VD","VDC"].map(l=>{const a=qs.filter(q=>q.lv===l); return `${LVN[l]}: ${a.filter(q=>q.ans!=null&&q.opts[q.ans]===q.o[0]).length}/${a.length}`}).join(" · ");
+    const wrong=qs.filter(q=>!(q.ans!=null&&q.opts[q.ans]===q.o[0]));
+    $("#main").innerHTML=`<section class="panel"><h2>Kết quả thi thử</h2><div class="result"><div>Điểm của bạn</div><div class="big">${score.toString().replace(".",",")}<span>/10</span></div><div>${r}/${qs.length} câu đúng · ${byLv}</div></div>
+    ${wrong.length?`<h2 style="font-size:20px">Xem lại ${wrong.length} câu chưa đúng</h2><div class="review">${wrong.map(q=>`<div class="item"><div class="qmeta"><span class="lv lv-${q.lv}">${LVN[q.lv]}</span></div><p style="margin:6px 0;font-weight:600">${esc(q.q)}</p>${q.ans!=null?`<div class="y">Bạn chọn: ${esc(q.opts[q.ans])}</div>`:'<div class="y">Chưa trả lời</div>'}<div class="a">Đáp án: ${esc(q.o[0])}</div><div class="note">${esc(q.e)}</div></div>`).join("")}</div>`:'<p class="lead">Tuyệt đối! Không có câu nào sai.</p>'}
+    <div class="row"><button class="btn primary" id="again">Làm đề khác</button></div></section>`;
+    $("#again").onclick=Exam;
+  }
+  draw();
+}
+
+/* ---------- Cases ---------- */
+function Cases(){
+  clearInterval(timerId);
+  $("#main").innerHTML=`<section class="panel"><h2>Tình huống thảo luận nhóm</h2><p class="lead">Dùng cho hoạt động trên lớp (15–20 phút/tình huống). Nhóm thảo luận trước, sau đó mở gợi ý để đối chiếu.</p>
+  ${CASES.map((c,k)=>`<article class="case"><span class="tag">Tình huống ${k+1}</span><h3>${esc(c.t)}</h3><p style="margin:0">${esc(c.s)}</p><strong>Câu hỏi</strong><ol>${c.q.map(x=>`<li>${esc(x)}</li>`).join("")}</ol><details><summary>Gợi ý định hướng trả lời</summary><ul>${c.g.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details></article>`).join("")}</section>`;
+}
+
+function fitQuote(){const bq=document.querySelector(".quote blockquote");if(!bq)return;bq.style.fontSize="";const w=bq.clientWidth;let fs=parseFloat(getComputedStyle(bq).fontSize);const widest=()=>Math.max(...[...bq.querySelectorAll(".ql")].map(e=>e.scrollWidth));let n=0;while(widest()>w&&n++<40){fs-=.5;bq.style.fontSize=fs+"px";}}
+fitQuote();try{document.fonts.ready.then(fitQuote);}catch(e){}addEventListener("resize",fitQuote);
+
+/* ---------- Full screen ---------- */
+(function(){
+  const b=$("#fsBtn"), lbl=b.querySelector("span");
+  const fsEl=()=>document.fullscreenElement||document.webkitFullscreenElement;
+  function setUI(on){document.body.classList.toggle("focus",on);b.setAttribute("aria-pressed",on);lbl.textContent=on?"Thoát":"Toàn màn hình";fitQuote();window.scrollTo(0,0);}
+  b.onclick=async()=>{
+    const on=!document.body.classList.contains("focus");
+    if(on){ setUI(true); const el=document.documentElement; try{ if(el.requestFullscreen) await el.requestFullscreen(); else if(el.webkitRequestFullscreen) el.webkitRequestFullscreen(); }catch(e){} }
+    else { setUI(false); try{ if(fsEl()) (document.exitFullscreen||document.webkitExitFullscreen).call(document); }catch(e){} }
+  };
+  const onChange=()=>{ if(!fsEl()&&document.body.classList.contains("focus")) setUI(false); };
+  document.addEventListener("fullscreenchange",onChange); document.addEventListener("webkitfullscreenchange",onChange);
+})();
+renderScore();
+show("sum");
+</script>
+
+</body>
+</html>
